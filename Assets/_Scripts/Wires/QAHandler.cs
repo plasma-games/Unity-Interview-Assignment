@@ -23,6 +23,7 @@ public class QAHandler : MonoBehaviour
     public string questionsFileName = "questions";
     private List<Question> questionsList;
     private int numberOfQuestions, questionsAnswered, correctAnswers, incorrectAnswers;
+    [SerializeField] private ScoreDisplay scoreDisplay;
     //using a dictionary in place of string comparisons will be more efficient, so we will map Questions and Answers to the dict
     private Dictionary<string, string> questionAnswerMap = new Dictionary<string, string>();
 
@@ -77,6 +78,9 @@ public class QAHandler : MonoBehaviour
             Debug.Log("Done!");
             Debug.Log("Correct: " + correctAnswers);
             Debug.Log("Incorrect: " + incorrectAnswers);
+            scoreDisplay.UpdateScore(correctAnswers, incorrectAnswers);
+            //slight delay added to let particle effects be shown
+            Invoke("LoadScoringScene", 2f);
         }
     }
 
@@ -88,5 +92,10 @@ public class QAHandler : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    private void LoadScoringScene()
+    {
+        GetComponent<SceneSwitcher>().SwitchScene("ScoringScene");
     }
 }
