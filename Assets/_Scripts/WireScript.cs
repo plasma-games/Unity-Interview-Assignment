@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WireScript : MonoBehaviour
 {
+    [SerializeField] private QAHandler qaHandler;
     [SerializeField] private SpriteRenderer wireEnd; //serializeField makes private variables visible in the Inspector
+    [SerializeField] private UnityEvent connected;
     private Vector3 startPoint, startPosition;
     private float startWidth;
-
+    //When we collide with a socket for the wire to go in to, we also get the question text of the child object for answer checking
+    public string answerText, questionText;
+    
     private void Start()
     {
         //get the initial position of the wire
@@ -37,9 +43,9 @@ public class WireScript : MonoBehaviour
             {
                 //update the wire and connect the two wires if they match
                 UpdateWire(collider.transform.position);
-                // if (answer wire connects to question wire) for scoring purposes
-                // {
-                // }
+                //When wire is connected we can check the answer with the QAHandler
+                questionText = collider.gameObject.GetComponentInChildren<TextMeshProUGUI>().text;
+                qaHandler.ProcessAnswer(questionText, answerText);
                 //prevents socket from being used again
                 Destroy(collider);
                 //prevents wire from being dragged again

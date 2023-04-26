@@ -154,7 +154,6 @@ Transform:
   - {fileID: 1096376601}
   - {fileID: 176687592}
   - {fileID: 683198175}
-  - {fileID: 602970967}
   m_Father: {fileID: 1903103152}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -565,6 +564,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.22352943
       objectReference: {fileID: 0}
+    - target: {fileID: 7146599470699795433, guid: 0087ab3fddde2bd4f8e9d64b87321dc4, type: 3}
+      propertyPath: qaHandler
+      value: 
+      objectReference: {fileID: 602970968}
     - target: {fileID: 7146599471109214816, guid: 0087ab3fddde2bd4f8e9d64b87321dc4, type: 3}
       propertyPath: m_Color.b
       value: 0.82745105
@@ -1038,6 +1041,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.8588236
       objectReference: {fileID: 0}
+    - target: {fileID: 7146599470699795433, guid: 0087ab3fddde2bd4f8e9d64b87321dc4, type: 3}
+      propertyPath: qaHandler
+      value: 
+      objectReference: {fileID: 602970968}
     - target: {fileID: 7146599471109214816, guid: 0087ab3fddde2bd4f8e9d64b87321dc4, type: 3}
       propertyPath: m_Color.b
       value: 0.1254902
@@ -1311,6 +1318,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.59607846
       objectReference: {fileID: 0}
+    - target: {fileID: 7146599470699795433, guid: 0087ab3fddde2bd4f8e9d64b87321dc4, type: 3}
+      propertyPath: qaHandler
+      value: 
+      objectReference: {fileID: 602970968}
     - target: {fileID: 7146599471109214816, guid: 0087ab3fddde2bd4f8e9d64b87321dc4, type: 3}
       propertyPath: m_Color.b
       value: 0.6313726
@@ -1382,8 +1393,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 602970967}
+  - component: {fileID: 602970968}
   m_Layer: 0
-  m_Name: ScoreHandler
+  m_Name: QAHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1396,13 +1408,28 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602970966}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5, y: 0.2142334, z: -0.99389684}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 14402791}
-  m_RootOrder: 4
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &602970968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602970966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c597f498fd7f4344a167ff83f92a087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questionsFileName: questions
+  wireStartParent: {fileID: 1243671251}
+  wireEndParent: {fileID: 1494697991}
 --- !u!1 &603744538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1804,7 +1831,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 683198175}
-  - component: {fileID: 683198176}
   m_Layer: 0
   m_Name: wires
   m_TagString: Untagged
@@ -1828,21 +1854,6 @@ Transform:
   m_Father: {fileID: 14402791}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &683198176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 683198174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c597f498fd7f4344a167ff83f92a087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questionsFileName: questions
-  wireStartParent: {fileID: 1243671251}
-  wireEndParent: {fileID: 1494697991}
 --- !u!4 &686902206 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7146599471550999470, guid: 0087ab3fddde2bd4f8e9d64b87321dc4, type: 3}
@@ -3106,7 +3117,7 @@ RectTransform:
   m_Children:
   - {fileID: 14402791}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3469,6 +3480,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.85098046
       objectReference: {fileID: 0}
+    - target: {fileID: 7146599470699795433, guid: 0087ab3fddde2bd4f8e9d64b87321dc4, type: 3}
+      propertyPath: qaHandler
+      value: 
+      objectReference: {fileID: 602970968}
     - target: {fileID: 7146599470699795435, guid: 0087ab3fddde2bd4f8e9d64b87321dc4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.08799997
