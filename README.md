@@ -11,6 +11,7 @@ like the example
 below. 
 
 ![](./Assets/Included/wire-matching.gif)
+![](./Assets/Included/Wires.gif)
 
 The game you create should try to match the style and format of the example. For the game we will provide you with the 
 list of matching questions. These will be given in a JSON format and can be found in the `Assests/Included` folder. You should use the JSON as a template for your own C# class or struct that includes the same fields and any relevant functionality you think the class should have. 
