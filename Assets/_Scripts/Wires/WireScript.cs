@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -32,6 +30,9 @@ public class WireScript : MonoBehaviour
         UpdateWire(newPosition);
     }
 
+    //We could break up the components of this function, I don't ordinarily like having a lot of logic in methods provided by Mono such as Update, Start, or Mouse
+    //There are a few different things happening here but they all relate to the connection of the wire to the wire end
+    //If this were an MVP, the next step might be to refactor this code into a few methods or even a script or two for organization's sake
     private void OnMouseUp()
     {
         //check for nearby connection points
@@ -45,6 +46,10 @@ public class WireScript : MonoBehaviour
                 UpdateWire(collider.transform.position);
                 //When wire is connected we can check the answer with the QAHandler
                 questionText = collider.gameObject.GetComponentInChildren<TextMeshProUGUI>().text;
+                //The particle system is added to each end wire spot object, cleaning up this project I would conduct checks to ensure there is a particle system attached
+                collider.gameObject.GetComponent<ParticleSystem>().Play();
+                //for multiple sounds I would use 'PlayOneShot' and have an audio handler that could contain different sounds to play
+                Camera.main.gameObject.GetComponent<AudioSource>().Play();
                 qaHandler.ProcessAnswer(questionText, answerText);
                 //prevents socket from being used again
                 Destroy(collider);

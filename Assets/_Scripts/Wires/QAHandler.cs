@@ -2,6 +2,14 @@ using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
 
+//Setup for parsing JSON
+//This should be scalable, but for the demonstration and from the gif provided,
+//I am assuming a max of four questions and answers, although the script can mechanically accept more,
+//The UI is not set up for this. If multiple questions were used, with the current art assets,
+//I would probably reload the wires every four sets of questions, so as long as the JSON provided
+//sets of questions that were a multiple of 4 I could quickly modify the script to handle more than 
+//4 questions, alternatively I would plan to have a scrolling set of wires perhaps, that could hold
+//more than 4 sets by using art that is scalable, perhaps by slicing up the provided backdrop that I cut from the gif.
 [System.Serializable]
 public class QuestionData
 {
@@ -17,6 +25,11 @@ public class Question
     public int weight;
 }
 
+//This script is called QAHandler but it more specifically processes the wire answers
+//I would ideally create a more focused script for general question and answer handling,
+//and if for this test I needed to handle the score or grading of two seperate games
+//I would have likely made a parent class out of this script, and had more specific
+//grading per minigame delegated into new scripts
 public class QAHandler : MonoBehaviour
 {
     [SerializeField] private GameObject wireStartParent, wireEndParent;
@@ -59,7 +72,7 @@ public class QAHandler : MonoBehaviour
         }
     }
 
-
+    //Scoring for the wire game
     public void ProcessAnswer(string questionText, string answer)
     {
         if(IsAnswerCorrect(questionText, answer) == true)
@@ -75,9 +88,6 @@ public class QAHandler : MonoBehaviour
 
         if(numberOfQuestions == questionsAnswered)
         {
-            Debug.Log("Done!");
-            Debug.Log("Correct: " + correctAnswers);
-            Debug.Log("Incorrect: " + incorrectAnswers);
             scoreDisplay.UpdateScore(correctAnswers, incorrectAnswers);
             //slight delay added to let particle effects be shown
             Invoke("LoadScoringScene", 2f);
