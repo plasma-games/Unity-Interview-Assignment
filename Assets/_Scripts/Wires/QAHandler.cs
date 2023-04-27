@@ -58,17 +58,27 @@ public class QAHandler : MonoBehaviour
             TextMeshProUGUI textmp = childObj.GetComponentInChildren<TextMeshProUGUI>();
             string expectedAnswer = questionsList[i].expectedAnswer;
             string questionText = questionsList[i].text;
-            textmp.text = expectedAnswer;
+            if (textmp != null)
+                textmp.text = expectedAnswer;
+            else
+                Debug.LogWarning("textmp is missing from childObj!");       
+
             // Add the question and expected answer pair to the dictionary
             questionAnswerMap.Add(questionText.ToLower(), expectedAnswer.ToLower());
             //here we assign the same question text to the wire script for answer checking later on
-            childObj.GetComponentInChildren<WireScript>().answerText = expectedAnswer;
+            if(childObj.GetComponentInChildren<WireScript>() != null)
+                childObj.GetComponentInChildren<WireScript>().answerText = expectedAnswer;
+            else
+                Debug.LogWarning("WireScript is missing from childObj!");
         }
         for (int i = 0; i < wireEndParent.transform.childCount; i++)
         {
             Transform childObj = wireEndParent.transform.GetChild(i);
             TextMeshProUGUI textmp = childObj.GetComponentInChildren<TextMeshProUGUI>();
-            textmp.text = questionsList[i].text;
+            if (textmp != null)
+                textmp.text = questionsList[i].text;
+            else
+                Debug.LogWarning("textmp is missing from childObj!");   
         }
     }
 

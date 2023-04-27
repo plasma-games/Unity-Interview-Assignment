@@ -1,0 +1,15 @@
+I started off with art assets, I found a serviceable still-image from the provided gif, and began cutting it up into relevant pieces. I was going to use the wires but my lack of art formatting knowledge was causing some strange issues.
+I ended up finding a free little wire pack with white wires which was more desirable, as now the wires can be colored however we like through Unity. I used one script for the wires, using a collider on the wire sockets on the other side
+that I would call when the wire was plugged into a socket. There is one smaller wire script that randomizes children, attached to the socket side and wire side to randomize them each time. 
+The wire script allows us to plug in the wire to a socket, which will then call to the socket to play it's particle system, and we also call to the main camera that has our sound
+listener and sound to play upon connecting a wire. We take the question text directly from the text that is displayed to the user, and then run a comparison against the answer attached to the wire through the QAHandler.
+We run the comparison in QAHandler by passing both strings into a dictionary beforehand, and then running a check on the 'key' in the 'key value pair' which runs more efficiently than if we were to check string to string
+through the entire JSON file, so this approach has scalability in mind. We start off in QAHandler also by getting the amount of QA sets, so that we know how many sets need to be answered before we go to the scoring scene.
+Like mentioned in the comments in the code, if say 8 questions were given, I would simply need to specify in the script that every 4 questions we would reload with 4 new questions, and still check until we have the total
+amount of QA sets answered before scoring, so this setup can easily take on new questions and is only currently limited by the layout of the UI allowing for sets of 4 questions at a time. One other gripe in the comments
+is that I have set up QAHandler.cs in a way that is focused more on solving wire problems, if another game were needed in addition to the wires I would likely break up the script to allow it to handle different game types,
+with scripts that inherit from it that more specifically calculate scores for different kinds of games as needed. If I worked on this project further, I would add more null checks for some of the objects. They all work
+because all of the components are attached, although Unity would quickly let us know if during play a object did not have the expected component I would begin adding more null checks and also require components. Using
+the require component functionality in a script will make the script complain and stop play if the object it is attached to is not provided with the required components. Things like this can help a more complex, growing
+system from failing due to developer error. I used prefabs lightly in this project, but they are usually integral to the process. I changed a few values quickly on the wires by going through each of the four, but if there
+were 20, that is where keeping one wire prefab updated would come in handy and be quite neccesary to the process.
