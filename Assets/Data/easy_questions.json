@@ -1,0 +1,16 @@
+{
+   "questions": [
+      {
+         "questionNumber": 0,
+         "text": "Starts with the letter A",
+         "expectedAnswer": "Atom",
+         "weight": 1
+      },
+      {
+         "questionNumber": 1,
+         "text": "Starts with the letter B",
+         "expectedAnswer": "Bike",
+         "weight": 1
+      }
+   ]
+}

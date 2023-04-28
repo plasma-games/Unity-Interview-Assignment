@@ -1,0 +1,52 @@
+{
+    "questions": [
+        {
+            "questionNumber": 0,
+            "text": "Starts with the letter A",
+            "expectedAnswer": "Atom",
+            "weight": 1
+        },
+        {
+            "questionNumber": 1,
+            "text": "Starts with the letter B",
+            "expectedAnswer": "Bike",
+            "weight": 1
+        },
+        {
+            "questionNumber": 2,
+            "text": "Starts with the letter C",
+            "expectedAnswer": "Calcium",
+            "weight": 1
+        },
+        {
+            "questionNumber": 3,
+            "text": "Starts with the letter D",
+            "expectedAnswer": "Defense",
+            "weight": 1
+        },
+        {
+            "questionNumber": 4,
+            "text": "Starts with the letter E",
+            "expectedAnswer": "Earth",
+            "weight": 1
+        },
+        {
+            "questionNumber": 5,
+            "text": "Starts with the letter F",
+            "expectedAnswer": "Face",
+            "weight": 1
+        },
+        {
+            "questionNumber": 6,
+            "text": "Starts with the letter G",
+            "expectedAnswer": "Gold",
+            "weight": 1
+        },
+        {
+            "questionNumber": 7,
+            "text": "Starts with the letter H",
+            "expectedAnswer": "Home",
+            "weight": 1
+        }
+    ]
+}
