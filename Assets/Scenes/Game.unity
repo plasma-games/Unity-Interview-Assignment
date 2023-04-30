@@ -21227,10 +21227,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSettings: {fileID: 11400000, guid: d6819978b2f9c4d15810071e7d135de6, type: 2}
   panelParent: {fileID: 394220707}
-  easyPanel: {fileID: 6337190594550420518, guid: f0e6cc47bdf60441cad1fe8c8ab538f7, type: 3}
+  easyPanel: {fileID: 2851066333755375658, guid: f0e6cc47bdf60441cad1fe8c8ab538f7, type: 3}
   mediumPanel: {fileID: 6337190594550420518, guid: ee2b306c2036b41b3b12ac410c9977d9, type: 3}
-  hardPanel: {fileID: 6337190594550420518, guid: 8d3f050ae134b4465b26673e8c047fe6, type: 3}
+  hardPanel: {fileID: 8049325772147504299, guid: 8d3f050ae134b4465b26673e8c047fe6, type: 3}
   animator: {fileID: 786416912}
+  quitButton: {fileID: 991071162}
 --- !u!95 &786416912
 Animator:
   serializedVersion: 5

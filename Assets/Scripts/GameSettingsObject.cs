@@ -15,4 +15,5 @@ public enum Difficulty
 public class GameSettingsObject : ScriptableObject
 {
     public Difficulty difficulty;
+    public bool randomizeQuestionOrder;
 }

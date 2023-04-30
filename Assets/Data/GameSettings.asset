@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6b86704c0fb4e92933e7d3730c7eb1, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: Assembly-CSharp::GameSettingsObject
-  difficulty: 0
+  difficulty: 2
+  randomizeQuestionOrder: 1
