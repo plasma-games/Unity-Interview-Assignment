@@ -12,11 +12,11 @@ public class QuestionInput : MonoBehaviour
 
     private LevelQuestion question;
 
-    public void SetQuestion(LevelQuestion _question, Color questionColor)
+    public void Initialize(LevelQuestion _question, Color questionColor, SoundManager soundManager)
     {
         question = _question;
         label.text = question.text;
         startImage.color = questionColor;
-        orb.Initialize(questionColor, question.expectedAnswer);
+        orb.Initialize(questionColor, question.expectedAnswer, soundManager);
     }
 }

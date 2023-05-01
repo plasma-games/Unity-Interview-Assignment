@@ -12,8 +12,9 @@ public class WirePanel : MonoBehaviour
     [SerializeField] private Color[] questionColors;
 
     private LevelDefinition levelDefinition;
+    private PanelContainer panelContainer;
 
-    public void Initialize(GameSettingsObject gameSettings)
+    public void Initialize(GameSettingsObject gameSettings, SoundManager soundManager, PanelContainer _panelContainer)
     {
         if (inputs.Length != outputs.Length)
         {
@@ -21,6 +22,8 @@ public class WirePanel : MonoBehaviour
                 "Panels must have an equal number of inputs and outputs.", inputs.Length, outputs.Length);
             Debug.LogError(errorMessage);
         }
+
+        panelContainer = _panelContainer;
 
         questionColors.Shuffle();
 
@@ -35,10 +38,10 @@ public class WirePanel : MonoBehaviour
             Debug.LogError(errorMessage);
         }
 
-        PopulatePanel(activeQuestions, gameSettings);
+        PopulatePanel(activeQuestions, gameSettings, soundManager);
     }
 
-    private void PopulatePanel(LevelQuestion[] activeQuestions, GameSettingsObject gameSettings)
+    private void PopulatePanel(LevelQuestion[] activeQuestions, GameSettingsObject gameSettings, SoundManager soundManager)
     {
         if (gameSettings.randomizeQuestionOrder)
         {
@@ -47,11 +50,6 @@ public class WirePanel : MonoBehaviour
         else
         {
             activeQuestions = activeQuestions.OrderBy(q => q.questionNumber).ToArray();
-        }
-
-        foreach (LevelQuestion question in activeQuestions)
-        {
-            Debug.Log("selected question: " + question.text+":"+question.questionNumber);
         }
 
         List<string> answers = new List<string>();
@@ -65,7 +63,7 @@ public class WirePanel : MonoBehaviour
 
         for (int i = 0; i < activeQuestions.Length; i++)
         {
-            inputs[i].SetQuestion(activeQuestions[i], questionColors[i]);
+            inputs[i].Initialize(activeQuestions[i], questionColors[i], soundManager);
             outputs[i].SetLabelText(answers[i]);
         }
     }
@@ -96,11 +94,6 @@ public class WirePanel : MonoBehaviour
 
         questionPool.Shuffle();
 
-        foreach(LevelQuestion q in questionPool)
-        {
-            Debug.Log(q.text);
-        }
-
         LevelQuestion[] activeQuestions = new LevelQuestion[numQuestions];
 
         for (int i = 0; i < numQuestions; i++)
@@ -117,7 +110,6 @@ public class WirePanel : MonoBehaviour
     public void CheckAnswers()
     {
         int numCorrect = 0;
-        int total = inputs.Length;
 
         foreach(QuestionInput input in inputs)
         {
@@ -127,7 +119,7 @@ public class WirePanel : MonoBehaviour
             }
         }
 
-        Debug.Log(numCorrect + ":" + total);
+        panelContainer.ShowEndScreen(numCorrect, inputs.Length);
     }
 }
 

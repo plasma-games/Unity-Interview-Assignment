@@ -3,14 +3,18 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class EnergyOrb : MonoBehaviour, IDragHandler, IEndDragHandler
+public class EnergyOrb : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    [SerializeField] private AudioClip pickupSound;
+    [SerializeField] private AudioClip dropSound;
+    [SerializeField] private AudioClip connectSound;
     [SerializeField] private float snapTime;
     [SerializeField] private CircleCollider2D circleCollider;
     [SerializeField] private Image orbImage;
 
     public bool isCorrect { get; private set; }
 
+    private SoundManager soundManager;
     private Transform originalParent;
     private Vector3 originalPosition;
     private Vector3 homePosition;
@@ -18,14 +22,21 @@ public class EnergyOrb : MonoBehaviour, IDragHandler, IEndDragHandler
     private Collider2D lastTouchedCollider;
     private bool canDrag;
 
-    public void Initialize(Color questionColor, string _expectedAnswer)
+    public void Initialize(Color questionColor, string _expectedAnswer, SoundManager _soundManager)
     {
+        soundManager = _soundManager;
         originalParent = transform.parent;
         originalPosition = homePosition = transform.localPosition;
         expectedAnswer = _expectedAnswer;
         orbImage.color = questionColor;
         canDrag = true;
         isCorrect = false;
+    }
+
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        soundManager.PlayClip(pickupSound);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -49,7 +60,12 @@ public class EnergyOrb : MonoBehaviour, IDragHandler, IEndDragHandler
                 lastTouchedCollider.isTrigger = false;
                 canDrag = false;
                 isCorrect = selectedOutput.answer.Equals(expectedAnswer);
+                soundManager.PlayClip(connectSound);
             }
+        }
+        else
+        {
+            soundManager.PlayClip(dropSound);
         }
 
         StartCoroutine(SnapToHomePosition());
@@ -59,7 +75,7 @@ public class EnergyOrb : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         if (transform.parent == originalParent) return;
 
-        Debug.Log(homePosition + ":" + originalPosition);
+        soundManager.PlayClip(dropSound);
         transform.SetParent(originalParent, true);
         homePosition = originalPosition;
         canDrag = true;

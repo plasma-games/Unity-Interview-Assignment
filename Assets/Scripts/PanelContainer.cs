@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PanelContainer : MonoBehaviour
 {
+    [SerializeField] private SoundManager soundManager;
+    [SerializeField] private AudioClip engageSound;
     [SerializeField] private GameSettingsObject gameSettings;
     [SerializeField] private Transform panelParent;
     [SerializeField] private WirePanel easyPanel;
@@ -10,10 +12,12 @@ public class PanelContainer : MonoBehaviour
     [SerializeField] private WirePanel hardPanel;
     [SerializeField] private Animator animator;
     [SerializeField] private QuitButton quitButton;
+    [SerializeField] private EndLevelScreen endLevelScreen;
 
     private WirePanel activePanel;
 
     private const string ANIMATION_TRIGGER_APPEAR = "appear";
+    private const string ANIMATION_TRIGGER_DISAPPEAR = "disappear";
 
     private void Start()
     {
@@ -37,12 +41,19 @@ public class PanelContainer : MonoBehaviour
                 break;
         }
 
-        activePanel.Initialize(gameSettings);
+        activePanel.Initialize(gameSettings, soundManager, this);
     }
 
     public void Appear()
     {
         animator.SetTrigger(ANIMATION_TRIGGER_APPEAR);
+    }
+
+    public void ShowEndScreen(int numCorrect, int total)
+    {
+        soundManager.PlayClip(engageSound);
+        animator.SetTrigger(ANIMATION_TRIGGER_DISAPPEAR);
+        endLevelScreen.ShowEndLevelScreen(numCorrect, total);
     }
 }
 

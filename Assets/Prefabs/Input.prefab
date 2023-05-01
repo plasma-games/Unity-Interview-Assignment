@@ -219,6 +219,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b15e85ce977848489757272fa1e94b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
+  pickupSound: {fileID: 8300000, guid: 0f6da038eb9fc42e589fe1f71ca824ae, type: 3}
+  dropSound: {fileID: 8300000, guid: f4eb68bd6c1ad4f7cbf503988d6e2f9d, type: 3}
+  connectSound: {fileID: 8300000, guid: 193c38ffd4260434186c5b3ff2757b8b, type: 3}
   snapTime: 0.25
   circleCollider: {fileID: 394786657199272120}
   orbImage: {fileID: 5388732908130771552}

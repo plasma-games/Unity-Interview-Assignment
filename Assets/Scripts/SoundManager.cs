@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private bool fadeInMusic;
     [SerializeField] private float fadeInTime;
+    [SerializeField] private float musicVolumeMax;
 
     private List<AudioSource> effectSources = new List<AudioSource>();
 
@@ -55,7 +56,7 @@ public class SoundManager : MonoBehaviour
         musicSource.volume = 0;
         musicSource.Play();
 
-        while (musicSource.volume < 1)
+        while (musicSource.volume < musicVolumeMax)
         {
             musicSource.volume +=  Time.deltaTime / fadeTime;
 

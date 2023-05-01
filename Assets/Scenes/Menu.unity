@@ -852,7 +852,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4e67c240c04bb4e4190f29c10977b851, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ad403fe5cb1141c4db962f01954ad170, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -953,6 +953,7 @@ MonoBehaviour:
   musicSource: {fileID: 862248933}
   fadeInMusic: 1
   fadeInTime: 3
+  musicVolumeMax: 0.3
 --- !u!4 &862248935
 Transform:
   m_ObjectHideFlags: 0
@@ -1441,6 +1442,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1589321524}
     m_Modifications:
+    - target: {fileID: 1263454031684764235, guid: a0687c8a4eafe4e8f9afe74ef91859cb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263454031684764235, guid: a0687c8a4eafe4e8f9afe74ef91859cb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263454031684764235, guid: a0687c8a4eafe4e8f9afe74ef91859cb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263454031684764235, guid: a0687c8a4eafe4e8f9afe74ef91859cb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1263454031932930872, guid: a0687c8a4eafe4e8f9afe74ef91859cb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1528,6 +1545,38 @@ PrefabInstance:
     - target: {fileID: 1263454031932930873, guid: a0687c8a4eafe4e8f9afe74ef91859cb, type: 3}
       propertyPath: m_Name
       value: Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576614736141260441, guid: a0687c8a4eafe4e8f9afe74ef91859cb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576614736141260441, guid: a0687c8a4eafe4e8f9afe74ef91859cb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576614736141260441, guid: a0687c8a4eafe4e8f9afe74ef91859cb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576614736141260441, guid: a0687c8a4eafe4e8f9afe74ef91859cb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576614736314924923, guid: a0687c8a4eafe4e8f9afe74ef91859cb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576614736314924923, guid: a0687c8a4eafe4e8f9afe74ef91859cb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576614736314924923, guid: a0687c8a4eafe4e8f9afe74ef91859cb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576614736314924923, guid: a0687c8a4eafe4e8f9afe74ef91859cb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8650506537023101667, guid: a0687c8a4eafe4e8f9afe74ef91859cb, type: 3}
       propertyPath: overlay
