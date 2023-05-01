@@ -121,7 +121,7 @@ public class WirePanel : MonoBehaviour
 
         foreach(QuestionInput input in inputs)
         {
-            if (input.isCorrect)
+            if (input.IsCorrect)
             {
                 numCorrect++;
             }
