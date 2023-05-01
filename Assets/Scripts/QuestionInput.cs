@@ -5,7 +5,8 @@ using System.Collections;
 public class QuestionInput : MonoBehaviour
 {
     [SerializeField] private Text label;
-    [SerializeField] private Image startImage;
+    [SerializeField] private Image baseImage;
+    [SerializeField] private Image ringImage;
     [SerializeField] private EnergyOrb orb;
 
     public bool IsCorrect { get { return orb.isCorrect; } }
@@ -16,7 +17,7 @@ public class QuestionInput : MonoBehaviour
     {
         question = _question;
         label.text = question.text;
-        startImage.color = questionColor;
+        baseImage.color = ringImage.color = questionColor;
         orb.Initialize(questionColor, question.expectedAnswer, soundManager);
     }
 }
