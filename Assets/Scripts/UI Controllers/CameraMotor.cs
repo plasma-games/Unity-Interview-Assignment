@@ -6,7 +6,6 @@ public enum CameraDirection
     Right = 1
 }
 
-
 // This simple motor class moves the camera object to enable the parallax background.
 // Speed and direction can be adjusted in the inspector.
 public class CameraMotor : MonoBehaviour

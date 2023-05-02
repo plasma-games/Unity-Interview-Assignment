@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// The PanelContainer creates the wire panel for the chosen difficulty and
+// provides it with necessary references.
 public class PanelContainer : MonoBehaviour
 {
     [SerializeField] private SoundManager soundManager;
@@ -21,13 +23,6 @@ public class PanelContainer : MonoBehaviour
 
     private void Start()
     {
-        if (gameSettings.difficulty == Difficulty.None)
-        {
-            Debug.LogWarning("Difficulty has not been set. Returning to main menu.");
-            quitButton.QuitGame();
-            return;
-        }
-
         switch (gameSettings.difficulty)
         {
             case Difficulty.Easy:

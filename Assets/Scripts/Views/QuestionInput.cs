@@ -2,6 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
+// The QuestionInput is primarily responsible for displaying a question's text
+// and initializing its orb.
 public class QuestionInput : MonoBehaviour
 {
     [SerializeField] private Text label;

@@ -2,6 +2,9 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+// The SoundManager is a useful class that can control background music and
+// sound effects in a scene. This script is a variation of a script I've used
+// in previous projects - it is simplified to fit the needs of this project.
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] private AudioSource musicSource;
@@ -27,6 +30,10 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
+        // The SoundManager can play any number of sound effects simultaneously.
+        // It keeps track of AudioSource components that have been added and if
+        // there is one that isn't currently playing, that one is used to play
+        // the new effect. If none are available, it creates a new AudioSource.
         AudioSource nextSource = null;
         foreach (AudioSource existingSource in effectSources)
         {

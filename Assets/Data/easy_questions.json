@@ -1,16 +1,28 @@
 {
-   "questions": [
-      {
-         "questionNumber": 0,
-         "text": "Starts with the letter A",
-         "expectedAnswer": "Atom",
-         "weight": 1
-      },
-      {
-         "questionNumber": 1,
-         "text": "Starts with the letter B",
-         "expectedAnswer": "Bike",
-         "weight": 1
-      }
-   ]
+    "questions": [
+        {
+            "questionNumber": 0,
+            "text": "Starts with the letter A",
+            "expectedAnswer": "Atom",
+            "weight": 10
+        },
+        {
+            "questionNumber": 1,
+            "text": "Starts with the letter B",
+            "expectedAnswer": "Bike",
+            "weight": 1
+        },
+        {
+            "questionNumber": 2,
+            "text": "Starts with the letter C",
+            "expectedAnswer": "Calcium",
+            "weight": 1
+        },
+        {
+            "questionNumber": 3,
+            "text": "Starts with the letter D",
+            "expectedAnswer": "Defense",
+            "weight": 1
+        }
+    ]
 }

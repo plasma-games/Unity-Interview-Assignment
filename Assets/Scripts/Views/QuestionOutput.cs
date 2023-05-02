@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
+// The QuestionOutput displays the answer options for the level's question set.
 public class QuestionOutput : MonoBehaviour
 {
     [SerializeField] private Text label;

@@ -1,7 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
+//using System.Collections.Generic;
 using UnityEngine;
 
+// This script controls the point lights in the background of the game scene.
+// They pulse until the player submits their responses. If they got all the
+// questions right, the lights turn green, otherwise they stay red.
 public class PulsingLight : MonoBehaviour
 {
     [SerializeField] private Light pointLight;
@@ -10,16 +13,25 @@ public class PulsingLight : MonoBehaviour
     [SerializeField] private float pulseSpeed;
     [SerializeField] private Color winColor;
     [SerializeField] private float colorChangeDelay;
+    [SerializeField] private float colorChangeDuration;
 
     private bool isIntensityIncreasing = true;
     private bool stopPulsing = false;
     private bool didWin = false;
     private bool hasColorChanged = false;
 
-    void Update()
+    public void ShowEndLevel(bool _didWin)
     {
+        stopPulsing = true;
+        didWin = _didWin;
+    }
+
+    private void Update()
+    {
+        // Wait until the light has reached max intensity to stop pulsing
         if (stopPulsing && pointLight.intensity >= intensityMax)
         {
+            // Change to green if the player got all of the questions correct
             if (didWin && !hasColorChanged)
             {
                 hasColorChanged = true;
@@ -42,24 +54,18 @@ public class PulsingLight : MonoBehaviour
         }
     }
 
-    public void ShowEndLevel(bool _didWin)
-    {
-        stopPulsing = true;
-        didWin = _didWin;
-    }
-
     private IEnumerator ChangeColor()
     {
         yield return new WaitForSeconds(colorChangeDelay);
 
         Color startColor = pointLight.color;
         float elapsedTime = 0.0f;
-        float totalTime = 1.0f;
 
-        while (elapsedTime < totalTime)
+        // Use Color.Lerp to gradually transition the color from red to green
+        while (elapsedTime < colorChangeDuration)
         {
             elapsedTime += Time.deltaTime;
-            pointLight.color = Color.Lerp(startColor, winColor, (elapsedTime / totalTime));
+            pointLight.color = Color.Lerp(startColor, winColor, (elapsedTime / colorChangeDuration));
             yield return null;
         }
     }

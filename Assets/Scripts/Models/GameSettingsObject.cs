@@ -4,13 +4,13 @@ using UnityEngine;
 [Serializable]
 public enum Difficulty
 {
-    None = 0,
-    Easy = 1,
-    Medium = 2,
-    Hard = 3
+    Easy = 0,
+    Medium = 1,
+    Hard = 2
 }
 
-
+// GameSettingsObject is a scriptable object that stores information about the
+// game settings. Using scriptable objects is an easy way to transfer data between scenes.
 [CreateAssetMenu (fileName = "SettingsObject", menuName = "GameSettingsObject")]
 public class GameSettingsObject : ScriptableObject
 {

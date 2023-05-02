@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+// The QuitButton handles moving from the game scene back to the menu scene.
 public class QuitButton : MonoBehaviour
 {
     [SerializeField] private SoundManager soundManager;
@@ -12,13 +13,9 @@ public class QuitButton : MonoBehaviour
 
     private const string MENU_SCENE_NAME = "Menu";
 
-    public void PlayButtonSound()
-    {
-        soundManager.PlayClip(buttonSound);
-    }
-
     public void QuitGame()
     {
+        soundManager.PlayClip(buttonSound);
         StartCoroutine(TransitionToMenu());
     }
 
